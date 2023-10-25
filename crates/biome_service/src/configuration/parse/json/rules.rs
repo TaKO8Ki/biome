@@ -785,6 +785,7 @@ impl VisitNode<JsonLanguage> for Nursery {
                 "recommended",
                 "all",
                 "noApproximativeNumericConstant",
+                "noDefaultExport",
                 "noDuplicateJsonKeys",
                 "noEmptyBlockStatements",
                 "noEmptyCharacterClassInRegex",
@@ -828,6 +829,11 @@ impl VisitNode<JsonLanguage> for Nursery {
                     diagnostics,
                 )?;
                 self.no_approximative_numeric_constant = Some(configuration);
+            }
+            "noDefaultExport" => {
+                let mut configuration = RuleConfiguration::default();
+                configuration.map_rule_configuration(&value, "noDefaultExport", diagnostics)?;
+                self.no_default_export = Some(configuration);
             }
             "noDuplicateJsonKeys" => {
                 let mut configuration = RuleConfiguration::default();

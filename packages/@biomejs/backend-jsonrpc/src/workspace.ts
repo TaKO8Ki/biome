@@ -737,6 +737,10 @@ export interface Nursery {
 	 */
 	noApproximativeNumericConstant?: RuleConfiguration;
 	/**
+	 * Disallow default exports.
+	 */
+	noDefaultExport?: RuleConfiguration;
+	/**
 	 * Disallow two keys with the same name inside a JSON object.
 	 */
 	noDuplicateJsonKeys?: RuleConfiguration;
@@ -1425,6 +1429,7 @@ export type Category =
 	| "lint/correctness/useValidForDirection"
 	| "lint/correctness/useYield"
 	| "lint/nursery/noApproximativeNumericConstant"
+	| "lint/nursery/noDefaultExport"
 	| "lint/nursery/noDuplicateJsonKeys"
 	| "lint/nursery/noEmptyBlockStatements"
 	| "lint/nursery/noEmptyCharacterClassInRegex"

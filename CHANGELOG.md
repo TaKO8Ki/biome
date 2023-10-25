@@ -28,6 +28,10 @@ Read our [guidelines for writing a good changelog entry](https://github.com/biom
 
 ### Linter
 
+#### New features
+
+- Add [noDefaultExport](https://biomejs.dev/linter/rules/no-default-export) which disallows `export default`. Contributed by @Conaclos
+
 #### Bug fixes
 
 - Fix [#175](https://github.com/biomejs/biome/issues/175) which made [noRedeclare](https://biomejs.dev/linter/rules/no-redeclare) report index signatures using the name of a variable in the parent scope.
