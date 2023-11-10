@@ -5,7 +5,7 @@ use biome_analyze::{
 use biome_console::markup;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_js_syntax::{
     AnyFunctionLike, JsBreakStatement, JsContinueStatement, JsElseClause, JsLanguage,
@@ -410,7 +410,7 @@ struct ComplexityOptionsVisitor;
 impl DeserializationVisitor for ComplexityOptionsVisitor {
     type Output = ComplexityOptions;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

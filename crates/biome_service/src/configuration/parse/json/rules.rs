@@ -5,7 +5,7 @@ use crate::Rules;
 use biome_console::markup;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_rowan::{TextRange, TokenText};
 impl Deserializable for Rules {
@@ -16,7 +16,7 @@ impl Deserializable for Rules {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = Rules;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -103,7 +103,7 @@ impl Deserializable for A11y {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = A11y;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -381,7 +381,7 @@ impl Deserializable for Complexity {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = Complexity;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -626,7 +626,7 @@ impl Deserializable for Correctness {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = Correctness;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -950,7 +950,7 @@ impl Deserializable for Nursery {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = Nursery;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -1166,7 +1166,7 @@ impl Deserializable for Performance {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = Performance;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -1233,7 +1233,7 @@ impl Deserializable for Security {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = Security;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -1306,7 +1306,7 @@ impl Deserializable for Style {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = Style;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -1615,7 +1615,7 @@ impl Deserializable for Suspicious {
         struct Visitor;
         impl DeserializationVisitor for Visitor {
             type Output = Suspicious;
-            const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+            const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
             fn visit_map(
                 self,
                 members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,

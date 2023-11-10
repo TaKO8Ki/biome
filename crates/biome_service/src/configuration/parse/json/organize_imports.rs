@@ -1,7 +1,7 @@
 use crate::configuration::organize_imports::OrganizeImports;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_rowan::{TextRange, TokenText};
 
@@ -18,7 +18,7 @@ struct OrganizeImportsVisitor;
 impl DeserializationVisitor for OrganizeImportsVisitor {
     type Output = OrganizeImports;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

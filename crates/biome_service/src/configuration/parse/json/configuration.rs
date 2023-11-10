@@ -1,7 +1,7 @@
 use crate::Configuration;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_rowan::TokenText;
 
@@ -18,7 +18,7 @@ struct ConfigurationVisitor;
 impl DeserializationVisitor for ConfigurationVisitor {
     type Output = Configuration;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

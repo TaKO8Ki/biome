@@ -305,7 +305,7 @@ pub(crate) fn generate_rules_configuration(mode: Mode) -> Result<()> {
         use crate::configuration::linter::*;
         use crate::Rules;
         use biome_console::markup;
-        use biome_deserialize::{Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor, ExpectedType};
+        use biome_deserialize::{Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor, VisitableType};
         use biome_rowan::{TextRange, TokenText};
 
         impl Deserializable for Rules {
@@ -316,7 +316,7 @@ pub(crate) fn generate_rules_configuration(mode: Mode) -> Result<()> {
                 struct Visitor;
                 impl DeserializationVisitor for Visitor  {
                     type Output =Rules;
-                    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+                    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
                     fn visit_map(
                         self,
                         members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,
@@ -691,7 +691,7 @@ fn generate_visitor(group: &str, rules: &BTreeMap<&'static str, RuleMetadata>) -
                 struct Visitor;
                 impl DeserializationVisitor for Visitor  {
                     type Output =#group_struct_name;
-                    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+                    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
                     fn visit_map(
                         self,
                         members: impl Iterator<Item = (impl DeserializableValue, impl DeserializableValue)>,

@@ -4,7 +4,7 @@ use crate::configuration::javascript::{JavascriptOrganizeImports, JavascriptPars
 use crate::configuration::JavascriptConfiguration;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_rowan::TokenText;
 
@@ -21,7 +21,7 @@ struct JavascriptConfigurationVisitor;
 impl DeserializationVisitor for JavascriptConfigurationVisitor {
     type Output = JavascriptConfiguration;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -75,7 +75,7 @@ struct JavascriptOrganizeImportsVisitor;
 impl DeserializationVisitor for JavascriptOrganizeImportsVisitor {
     type Output = JavascriptOrganizeImports;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -100,7 +100,7 @@ struct JavascriptParserVisitor;
 impl DeserializationVisitor for JavascriptParserVisitor {
     type Output = JavascriptParser;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

@@ -1,7 +1,7 @@
 use crate::configuration::javascript::JavascriptFormatter;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_rowan::TokenText;
 
@@ -18,7 +18,7 @@ struct JavascriptFormatterVisitor;
 impl DeserializationVisitor for JavascriptFormatterVisitor {
     type Output = JavascriptFormatter;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

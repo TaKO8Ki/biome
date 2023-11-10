@@ -4,7 +4,7 @@ expression: incorrect_type.json
 ---
 incorrect_type.json:2:15 deserialize ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  × Incorrect type, expected an array.
+  × Incorrect type, expected an array, but received an object.
   
     1 │ {
   > 2 │ 	"overrides": {}

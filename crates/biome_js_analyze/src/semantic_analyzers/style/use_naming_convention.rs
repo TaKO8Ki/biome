@@ -13,7 +13,7 @@ use biome_analyze::{
 use biome_console::markup;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_diagnostics::Applicability;
 use biome_js_semantic::CanBeImportedExported;
@@ -498,7 +498,7 @@ struct NamingConventionOptionsVisitor;
 impl DeserializationVisitor for NamingConventionOptionsVisitor {
     type Output = NamingConventionOptions;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

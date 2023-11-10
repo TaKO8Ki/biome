@@ -4,7 +4,7 @@ expression: lisence_not_string.json
 ---
 lisence_not_string.json:2:13 deserialize ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  × Incorrect type, expected a string.
+  × Incorrect type, expected a string, but received a boolean.
   
     1 │ {
   > 2 │ 	"license": false

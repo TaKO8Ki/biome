@@ -4,7 +4,7 @@ use crate::configuration::overrides::{
 };
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_rowan::TokenText;
 
@@ -30,7 +30,7 @@ struct OverridePatternVisitor;
 impl DeserializationVisitor for OverridePatternVisitor {
     type Output = OverridePattern;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -99,7 +99,7 @@ struct OverrideFormatterConfigurationVisitor;
 impl DeserializationVisitor for OverrideFormatterConfigurationVisitor {
     type Output = OverrideFormatterConfiguration;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -169,7 +169,7 @@ struct OverrideLinterConfigurationVisitor;
 impl DeserializationVisitor for OverrideLinterConfigurationVisitor {
     type Output = OverrideLinterConfiguration;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -215,7 +215,7 @@ struct OverrideOrganizeImportsConfigurationVisitor;
 impl DeserializationVisitor for OverrideOrganizeImportsConfigurationVisitor {
     type Output = OverrideOrganizeImportsConfiguration;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

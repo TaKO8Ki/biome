@@ -2,7 +2,7 @@ use crate::{LanguageRoot, Manifest};
 use biome_deserialize::json::deserialize_from_json_ast;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    Deserialized, ExpectedType,
+    Deserialized, VisitableType,
 };
 use biome_json_syntax::JsonLanguage;
 use biome_rowan::TokenText;
@@ -48,7 +48,7 @@ struct PackageJsonVisitor;
 impl DeserializationVisitor for PackageJsonVisitor {
     type Output = PackageJson;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

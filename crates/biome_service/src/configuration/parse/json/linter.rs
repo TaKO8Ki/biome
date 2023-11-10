@@ -3,7 +3,7 @@ use crate::configuration::LinterConfiguration;
 use crate::RuleConfiguration;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_js_analyze::options::PossibleOptions;
 use biome_rowan::{TextRange, TokenText};
@@ -21,7 +21,7 @@ struct LinterConfigurationVisitor;
 impl DeserializationVisitor for LinterConfigurationVisitor {
     type Output = LinterConfiguration;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -77,7 +77,7 @@ struct RuleConfigurationVisitor<'a> {
 impl<'a> DeserializationVisitor for RuleConfigurationVisitor<'a> {
     type Output = RuleConfiguration;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::STR.union(ExpectedType::MAP);
+    const EXPECTED_TYPE: VisitableType = VisitableType::STR.union(VisitableType::MAP);
 
     fn visit_str(
         self,

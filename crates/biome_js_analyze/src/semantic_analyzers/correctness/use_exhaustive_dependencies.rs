@@ -4,7 +4,7 @@ use biome_analyze::{context::RuleContext, declare_rule, Rule, RuleDiagnostic};
 use biome_console::markup;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_js_semantic::{Capture, SemanticModel};
 use biome_js_syntax::{
@@ -239,7 +239,7 @@ struct HooksOptionsVisitor;
 impl DeserializationVisitor for HooksOptionsVisitor {
     type Output = HooksOptions;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -315,7 +315,7 @@ struct HooksVisitor;
 impl DeserializationVisitor for HooksVisitor {
     type Output = Hooks;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

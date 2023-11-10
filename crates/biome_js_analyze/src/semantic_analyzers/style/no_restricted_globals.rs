@@ -4,7 +4,7 @@ use biome_analyze::{declare_rule, Rule, RuleDiagnostic};
 use biome_console::markup;
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_js_semantic::{Binding, BindingExtensions};
 use biome_js_syntax::{AnyJsIdentifierUsage, TextRange};
@@ -93,7 +93,7 @@ struct RestrictedGlobalsOptionsVisitor;
 impl DeserializationVisitor for RestrictedGlobalsOptionsVisitor {
     type Output = RestrictedGlobalsOptions;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,

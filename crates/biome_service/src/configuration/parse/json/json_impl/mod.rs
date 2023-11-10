@@ -1,7 +1,7 @@
 use crate::configuration::json::{JsonConfiguration, JsonFormatter, JsonParser};
 use biome_deserialize::{
     Deserializable, DeserializableValue, DeserializationDiagnostic, DeserializationVisitor,
-    ExpectedType,
+    VisitableType,
 };
 use biome_rowan::TokenText;
 
@@ -18,7 +18,7 @@ struct JsonConfigurationVisitor;
 impl DeserializationVisitor for JsonConfigurationVisitor {
     type Output = JsonConfiguration;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -66,7 +66,7 @@ struct JsonParserVisitor;
 impl DeserializationVisitor for JsonParserVisitor {
     type Output = JsonParser;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
@@ -114,7 +114,7 @@ struct JsonFormatterVisitor;
 impl DeserializationVisitor for JsonFormatterVisitor {
     type Output = JsonFormatter;
 
-    const EXPECTED_TYPE: ExpectedType = ExpectedType::MAP;
+    const EXPECTED_TYPE: VisitableType = VisitableType::MAP;
 
     fn visit_map(
         self,
