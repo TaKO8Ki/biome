@@ -75,7 +75,7 @@ tests_macros         = { path = "./crates/tests_macros" }
 bitflags          = "2.3.1"
 bpaf              = { version = "0.9.5", features = ["derive"] }
 countme           = "3.0.1"
-dashmap           = "5.4.0"
+dashmap           = "=5.1.0"
 indexmap          = "1.9.3"
 insta             = "1.29.0"
 lazy_static       = "1.4.0"
@@ -89,7 +89,7 @@ serde_json        = "1.0.96"
 smallvec          = { version = "1.10.0", features = ["union", "const_new"] }
 tracing           = { version = "0.1.37", default-features = false, features = ["std"] }
 # pinning to version 1.18 to avoid multiple versions of windows-sys as dependency
-tokio       = { version = "~1.18.5" }
+tokio       = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll" }
 unicode-bom = "2.0.3"
 
 
@@ -104,3 +104,9 @@ opt-level = "s"
 [profile.release.package.biome_wasm]
 debug     = false
 opt-level = 3
+
+[patch.crates-io]
+socket2 = { git = "https://github.com/wasix-org/socket2.git", branch = "v0.4.9" }
+libc = { git = "https://github.com/wasix-org/libc.git", branch = "v0.2.147" }
+tokio = { git = "https://github.com/wasix-org/tokio.git", branch = "epoll" }
+rustls = { git = "https://github.com/wasix-org/rustls.git", branch = "v0.21.5" }
