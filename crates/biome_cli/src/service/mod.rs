@@ -55,7 +55,6 @@ pub(crate) use self::unix::{
 };
 
 #[cfg(target_os = "wasi")]
-#[path = "unix.rs"]
 mod wasix;
 #[cfg(target_os = "wasi")]
 pub(crate) use self::wasix::{
@@ -65,11 +64,12 @@ pub(crate) use self::wasix::{
 /// Tries to open a connection to a running daemon instance, returning a
 /// [WorkspaceTransport] instance if the socket is currently active
 pub fn open_transport(runtime: Runtime) -> io::Result<Option<impl WorkspaceTransport>> {
-    match runtime.block_on(open_socket()) {
-        Ok(Some((read, write))) => Ok(Some(SocketTransport::open(runtime, read, write))),
-        Ok(None) => Ok(None),
-        Err(err) => Err(err),
-    }
+    // match runtime.block_on(open_socket()) {
+    //     Ok(Some((read, write))) => Ok(Some(SocketTransport::open(runtime, read, write))),
+    //     Ok(None) => Ok(None),
+    //     Err(err) => Err(err),
+    // }
+    Ok(None::<SocketTransport>)
 }
 
 type JsonRpcResult = Result<Box<RawValue>, TransportError>;
